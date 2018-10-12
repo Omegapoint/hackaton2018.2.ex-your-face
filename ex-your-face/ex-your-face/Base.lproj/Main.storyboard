@@ -26,9 +26,19 @@
                                     <segue destination="HHg-Ot-AFH" kind="show" id="oID-D8-AQV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uxl-Fz-CMl">
+                                <rect key="frame" x="16" y="356" width="343" height="30"/>
+                                <state key="normal" title="Face tracking example"/>
+                                <connections>
+                                    <segue destination="pcA-Ze-T4b" kind="show" id="NI8-gi-0DX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Uxl-Fz-CMl" secondAttribute="trailing" constant="16" id="5Kx-Jk-aL9"/>
+                            <constraint firstItem="Uxl-Fz-CMl" firstAttribute="top" secondItem="yog-8p-bJI" secondAttribute="bottom" constant="7.5" id="Nla-Jd-P89"/>
+                            <constraint firstItem="Uxl-Fz-CMl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="l12-Pf-LHX"/>
                             <constraint firstItem="yog-8p-bJI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lwh-K6-AHK"/>
                             <constraint firstItem="yog-8p-bJI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rt1-Fy-rOB"/>
                         </constraints>
@@ -36,6 +46,7 @@
                     </view>
                 </viewController>
             </objects>
+            <point key="canvasLocation" x="669.60000000000002" y="45.42728635682159"/>
         </scene>
         <!--Main Scene View Controller-->
         <scene sceneID="3Fd-d9-mS4">
@@ -80,6 +91,22 @@
             </objects>
             <point key="canvasLocation" x="1517.5999999999999" y="26.53673163418291"/>
         </scene>
+        <!--Face Detection View Controller-->
+        <scene sceneID="4MJ-sS-P5g">
+            <objects>
+                <viewController id="pcA-Ze-T4b" customClass="FaceDetectionViewController" customModule="ex_your_face" customModuleProvider="target" sceneMemberID="viewController">
+                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="i1D-H3-RID">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </arscnView>
+                    <connections>
+                        <outlet property="sceneView" destination="i1D-H3-RID" id="X7e-Ri-Ses"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FEn-xY-CIu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="670" y="790"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="9rQ-hd-Nvm">
             <objects>
@@ -118,7 +145,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="L1r-Pa-McO"/>
-        <segue reference="kzv-TA-99R"/>
+        <segue reference="oID-D8-AQV"/>
     </inferredMetricsTieBreakers>
 </document>
