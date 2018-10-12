@@ -51,19 +51,74 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PeE-fj-8Tn">
+                                <rect key="frame" x="239" y="491" width="120" height="160"/>
+                                <color key="backgroundColor" red="0.81176470590000005" green="0.84705882349999995" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="IMN-24-oOU"/>
+                                    <constraint firstAttribute="height" constant="160" id="SL3-z1-Eeh"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="I3e-cK-oLH" firstAttribute="bottom" secondItem="PeE-fj-8Tn" secondAttribute="bottom" constant="16" id="0oR-lK-axO"/>
                             <constraint firstItem="QJi-HQ-bXn" firstAttribute="top" secondItem="I3e-cK-oLH" secondAttribute="top" constant="24" id="3lw-cy-DB8"/>
+                            <constraint firstItem="I3e-cK-oLH" firstAttribute="trailing" secondItem="PeE-fj-8Tn" secondAttribute="trailing" constant="16" id="V5x-Fs-JJN"/>
                             <constraint firstItem="I3e-cK-oLH" firstAttribute="trailing" secondItem="QJi-HQ-bXn" secondAttribute="trailing" constant="16" id="acX-dx-aiU"/>
                             <constraint firstItem="QJi-HQ-bXn" firstAttribute="leading" secondItem="I3e-cK-oLH" secondAttribute="leading" constant="16" id="htw-NZ-FDO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="I3e-cK-oLH"/>
                     </view>
+                    <connections>
+                        <outlet property="previewView" destination="PeE-fj-8Tn" id="6p6-KG-WI3"/>
+                        <outlet property="timeRemainingLabel" destination="QJi-HQ-bXn" id="UMK-4J-Lzi"/>
+                        <segue destination="paf-dq-5Ll" kind="show" identifier="gameOverSegue" id="L1r-Pa-McO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ri1-gw-duL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1518" y="27"/>
+            <point key="canvasLocation" x="1517.5999999999999" y="26.53673163418291"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="9rQ-hd-Nvm">
+            <objects>
+                <viewController id="paf-dq-5Ll" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2bS-co-Jyg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Du vann!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgw-qp-icH">
+                                <rect key="frame" x="153.5" y="323" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2X-dk-9KS">
+                                <rect key="frame" x="151.5" y="352" width="72" height="30"/>
+                                <state key="normal" title="Spela igen"/>
+                                <connections>
+                                    <segue destination="HHg-Ot-AFH" kind="show" id="kzv-TA-99R"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pgw-qp-icH" firstAttribute="centerX" secondItem="2bS-co-Jyg" secondAttribute="centerX" id="047-Q8-IiS"/>
+                            <constraint firstItem="t2X-dk-9KS" firstAttribute="centerX" secondItem="2bS-co-Jyg" secondAttribute="centerX" id="Czk-BK-kME"/>
+                            <constraint firstItem="pgw-qp-icH" firstAttribute="centerY" secondItem="2bS-co-Jyg" secondAttribute="centerY" id="bL4-OK-Rcb"/>
+                            <constraint firstItem="t2X-dk-9KS" firstAttribute="top" secondItem="pgw-qp-icH" secondAttribute="bottom" constant="8" id="nlA-5o-ttC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YO8-2i-HTA"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UJj-HF-G6P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2343" y="27"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="L1r-Pa-McO"/>
+        <segue reference="kzv-TA-99R"/>
+    </inferredMetricsTieBreakers>
 </document>
