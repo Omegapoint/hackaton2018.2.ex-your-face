@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		35DF93AA2170CF2E00D157CC /* MainSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DF93A92170CF2E00D157CC /* MainSceneViewController.swift */; };
+		35DF93AD2170DDE200D157CC /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35DF93AC2170DDE200D157CC /* ARKit.framework */; };
 		E03455822170C09000CB8EA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03455812170C09000CB8EA8 /* AppDelegate.swift */; };
 		E03455842170C09000CB8EA8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03455832170C09000CB8EA8 /* ViewController.swift */; };
 		E03455872170C09000CB8EA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E03455852170C09000CB8EA8 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		35DF93A92170CF2E00D157CC /* MainSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSceneViewController.swift; sourceTree = "<group>"; };
+		35DF93AC2170DDE200D157CC /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
 		E034557E2170C09000CB8EA8 /* ex-your-face.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ex-your-face.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E03455812170C09000CB8EA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E03455832170C09000CB8EA8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,17 +33,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35DF93AD2170DDE200D157CC /* ARKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35DF93AB2170DDE200D157CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				35DF93AC2170DDE200D157CC /* ARKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E03455752170C09000CB8EA8 = {
 			isa = PBXGroup;
 			children = (
 				E03455802170C09000CB8EA8 /* ex-your-face */,
 				E034557F2170C09000CB8EA8 /* Products */,
+				35DF93AB2170DDE200D157CC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

@@ -51,27 +51,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PeE-fj-8Tn">
-                                <rect key="frame" x="239" y="491" width="120" height="160"/>
-                                <color key="backgroundColor" red="0.81176470590000005" green="0.84705882349999995" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJz-9w-ayt">
+                                <rect key="frame" x="16" y="323" width="343" height="324"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="IMN-24-oOU"/>
-                                    <constraint firstAttribute="height" constant="160" id="SL3-z1-Eeh"/>
+                                    <constraint firstAttribute="width" secondItem="fJz-9w-ayt" secondAttribute="height" multiplier="343:324" id="VPW-yt-fGR"/>
                                 </constraints>
-                            </view>
+                            </arscnView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="I3e-cK-oLH" firstAttribute="bottom" secondItem="PeE-fj-8Tn" secondAttribute="bottom" constant="16" id="0oR-lK-axO"/>
                             <constraint firstItem="QJi-HQ-bXn" firstAttribute="top" secondItem="I3e-cK-oLH" secondAttribute="top" constant="24" id="3lw-cy-DB8"/>
-                            <constraint firstItem="I3e-cK-oLH" firstAttribute="trailing" secondItem="PeE-fj-8Tn" secondAttribute="trailing" constant="16" id="V5x-Fs-JJN"/>
+                            <constraint firstItem="I3e-cK-oLH" firstAttribute="trailing" secondItem="fJz-9w-ayt" secondAttribute="trailing" constant="16" id="72M-dR-Geq"/>
+                            <constraint firstItem="I3e-cK-oLH" firstAttribute="bottom" secondItem="fJz-9w-ayt" secondAttribute="bottom" constant="20" id="8pe-id-qhR"/>
+                            <constraint firstItem="fJz-9w-ayt" firstAttribute="leading" secondItem="I3e-cK-oLH" secondAttribute="leading" constant="16" id="XL0-Gl-IFi"/>
                             <constraint firstItem="I3e-cK-oLH" firstAttribute="trailing" secondItem="QJi-HQ-bXn" secondAttribute="trailing" constant="16" id="acX-dx-aiU"/>
                             <constraint firstItem="QJi-HQ-bXn" firstAttribute="leading" secondItem="I3e-cK-oLH" secondAttribute="leading" constant="16" id="htw-NZ-FDO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="I3e-cK-oLH"/>
                     </view>
                     <connections>
-                        <outlet property="previewView" destination="PeE-fj-8Tn" id="6p6-KG-WI3"/>
+                        <outlet property="previewView" destination="fJz-9w-ayt" id="Cz5-w9-JUJ"/>
+                        <outlet property="sceneView" destination="fJz-9w-ayt" id="txB-3e-lat"/>
                         <outlet property="timeRemainingLabel" destination="QJi-HQ-bXn" id="UMK-4J-Lzi"/>
                         <segue destination="paf-dq-5Ll" kind="show" identifier="gameOverSegue" id="L1r-Pa-McO"/>
                     </connections>

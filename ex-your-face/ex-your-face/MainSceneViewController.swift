@@ -10,9 +10,13 @@ import Foundation
 
 import UIKit
 import AVFoundation
+import ARKit
+import Vision
 
 class MainSceneViewController: UIViewController {
     var gameTimer: Timer!
+    var scanTimer: Timer?
+    
     var secondsRemaining = 5
     
     var captureSession: AVCaptureSession!
@@ -22,12 +26,32 @@ class MainSceneViewController: UIViewController {
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var timeRemainingLabel: UILabel!
     
+    @IBOutlet weak var sceneView: ARSCNView!
+    
     override func viewDidLoad() {
-        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateSecondsRemaining), userInfo: nil, repeats: true)
+        super.viewDidLoad()
+        
+        sceneView.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let configuration = ARWorldTrackingConfiguration()
+        
+        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateSecondsRemaining), userInfo: nil, repeats: true)
+        
+        sceneView.session.run(configuration)
+        scanTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(scanForFaces), userInfo: nil, repeats: true)
+    }
+    
+    
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
         gameTimer.invalidate()
+        
+        scanTimer?.invalidate()
+        sceneView.session.pause()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,8 +78,25 @@ class MainSceneViewController: UIViewController {
         catch let error  {
             print("Error Unable to initialize back camera:  \(error.localizedDescription)")
         }
+    }
+    
+    @objc func scanForFaces() {
         
+        //get the captured image of the ARSession's current frame
+        guard let capturedImage = sceneView.session.currentFrame?.capturedImage else { return }
         
+        let image = CIImage.init(cvPixelBuffer: capturedImage)
+        
+        let detectFaceRequest = VNDetectFaceRectanglesRequest { (request, error) in
+            
+            print(request.results)
+        }
+        
+        let imageOrientation: CGImagePropertyOrientation = .up
+        
+        DispatchQueue.global().async {
+            try? VNImageRequestHandler(ciImage: image, orientation: imageOrientation).perform([detectFaceRequest])
+        }
     }
     
     func setupLivePreview() {
@@ -89,4 +130,19 @@ class MainSceneViewController: UIViewController {
         
     }
     
+    
+    private func faceFrame(from boundingBox: CGRect) -> CGRect {
+        
+        //translate camera frame to frame inside the ARSKView
+        let origin = CGPoint(x: boundingBox.minX * sceneView.bounds.width, y: (1 - boundingBox.maxY) * sceneView.bounds.height)
+        let size = CGSize(width: boundingBox.width * sceneView.bounds.width, height: boundingBox.height * sceneView.bounds.height)
+        
+        return CGRect(origin: origin, size: size)
+    }
+    
+}
+
+
+extension MainSceneViewController: ARSCNViewDelegate {
+    //implement ARSCNViewDelegate functions for things like error tracking
 }
